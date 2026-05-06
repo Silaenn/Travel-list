@@ -11,9 +11,11 @@
 :root {
   --color-bg: #f5efe6;
   --color-surface: #fdf8f2;
-  --color-primary: #a8c5a0;       /* Sage Green */
+  --color-primary: #a8c5a0;
+  /* Sage Green */
   --color-primary-dark: #82a87a;
-  --color-accent: #d4845a;         /* Terracotta */
+  --color-accent: #d4845a;
+  /* Terracotta */
   --color-accent-dark: #be744d;
   --color-text-main: #3d2b1f;
   --color-text-dim: #8a6a55;
@@ -29,7 +31,9 @@
 /* ============================================
    RESET & BASE
    ============================================ */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -49,86 +53,6 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-}
-
-/* ============================================
-   BOTANICAL DECORATIVE LAYER
-   ============================================ */
-.botanical-layer {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.botanical-layer svg {
-  position: absolute;
-  opacity: 0.13;
-}
-
-/* Top-left — large palm */
-.botanical-layer .b1 {
-  top: -30px;
-  left: -40px;
-  width: clamp(160px, 22vw, 280px);
-  transform: rotate(-15deg);
-}
-
-/* Top-right — fern */
-.botanical-layer .b2 {
-  top: -20px;
-  right: -50px;
-  width: clamp(150px, 20vw, 260px);
-  transform: rotate(20deg) scaleX(-1);
-}
-
-/* Bottom-left — monstera */
-.botanical-layer .b3 {
-  bottom: 40px;
-  left: -30px;
-  width: clamp(130px, 18vw, 220px);
-  transform: rotate(10deg);
-  opacity: 0.09;
-}
-
-/* Bottom-right — tropical */
-.botanical-layer .b4 {
-  bottom: -20px;
-  right: -40px;
-  width: clamp(140px, 19vw, 240px);
-  transform: rotate(-10deg) scaleX(-1);
-  opacity: 0.09;
-}
-
-/* Mid-left — small accent */
-.botanical-layer .b5 {
-  top: 38%;
-  left: 1%;
-  width: clamp(60px, 8vw, 100px);
-  transform: rotate(30deg);
-  opacity: 0.07;
-}
-
-/* Mid-right — small accent */
-.botanical-layer .b6 {
-  top: 50%;
-  right: 1%;
-  width: clamp(55px, 7vw, 90px);
-  transform: rotate(-20deg);
-  opacity: 0.07;
-}
-
-/* Hide small mid accents on mobile */
-@media (max-width: 600px) {
-  .botanical-layer .b5,
-  .botanical-layer .b6 {
-    display: none;
-  }
-  .botanical-layer .b3,
-  .botanical-layer .b4 {
-    opacity: 0.06;
-  }
 }
 
 /* ============================================
@@ -166,14 +90,9 @@ body {
 .logo-tagline {
   margin-top: 6px;
   font-size: clamp(12px, 2vw, 14px);
-  font-weight: 500;
+  font-weight: 300;
   color: var(--color-text-dim);
   letter-spacing: 0.02em;
-  background-color: var(--color-bg);
-  padding: 2px 12px;
-  border-radius: 20px;
-  width: fit-content;
-  margin: 4px auto 0;
 }
 
 /* ============================================
@@ -344,6 +263,18 @@ body {
 /* ============================================
    EMPTY STATE
    ============================================ */
+@keyframes emptyStateIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .empty-state {
   display: flex;
   flex-direction: column;
@@ -353,6 +284,29 @@ body {
   padding: 3rem 1rem;
   text-align: center;
   flex: 1;
+  animation: emptyStateIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes emojiBounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-6px);
+  }
+
+  80% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .empty-state-emoji {
@@ -360,6 +314,7 @@ body {
   line-height: 1;
   display: block;
   margin-bottom: 0.5rem;
+  animation: emojiBounce 0.8s ease 0.3s both;
 }
 
 .empty-state-title {
@@ -425,6 +380,12 @@ body {
   border-color: #e63946;
 }
 
+.actions button.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 /* ============================================
    STATS
    ============================================ */
@@ -440,7 +401,7 @@ body {
   gap: 0.75rem;
 }
 
-.stats > em {
+.stats>em {
   font-style: normal;
   font-size: clamp(12px, 2.5vw, 14px);
   color: var(--color-text-dim);

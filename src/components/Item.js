@@ -3,7 +3,7 @@ export default function Item({ item, onDeleteItem, onUpdateItem }) {
     <li>
       <input
         type="checkbox"
-        value={item.packed}
+        checked={item.packed}
         onChange={() => {
           onUpdateItem(item.id);
         }}
