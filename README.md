@@ -2,6 +2,9 @@
 
 A clean, interactive React packing list app to help you prepare for your next trip. Add items, track your progress, and never forget a travel essential again.
 
+<img width="1920" height="935" alt="Far-Away-✈️-—-Pack-Smart-Travel-Light" src="https://github.com/user-attachments/assets/8dac3db6-5563-4ca0-99a7-2302ba49442d" />
+<br>
+
 ## Features
 
 - **Add Items** — Add items with custom quantities to your packing list.
