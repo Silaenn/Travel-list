@@ -1,18 +1,20 @@
 export default function Stats({ items }) {
   if (!items.length)
     return (
-      <p className="stats">
+      <footer className="stats">
         <em>Start adding some items to your packing list 🚀</em>
-      </p>
+      </footer>
     );
 
   const numItems = items.length;
   const numPacked = items.filter((item) => item.packed).length;
   const percentage = Math.round((numPacked / numItems) * 100);
+
   return (
     <footer className="stats">
-      <div className="stats-percentage">
-        {percentage}% <span>packed</span>
+      <div className="stats-percentage-row">
+        <span className="stats-percentage">{percentage}%</span>
+        <span className="stats-percentage-label">packed</span>
       </div>
       <div className="progress-bar-container">
         <div
