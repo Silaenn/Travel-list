@@ -11,7 +11,7 @@ export default function Stats({ items }) {
   const percentage = Math.round((numPacked / numItems) * 100);
 
   return (
-    <footer className="stats">
+    <footer className="stats fade-in">
       <div className="stats-percentage-row">
         <span className="stats-percentage">{percentage}%</span>
         <span className="stats-percentage-label">packed</span>

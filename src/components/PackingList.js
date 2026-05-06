@@ -21,7 +21,7 @@ export default function PackingList({
       .sort((a, b) => Number(a.packed) - Number(b.packed));
 
   return (
-    <div className="list">
+    <div className="list fade-in">
       {items.length === 0 ? (
         <div className="empty-state">
           <span className="empty-state-emoji">🧳</span>
