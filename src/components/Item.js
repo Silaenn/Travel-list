@@ -8,15 +8,7 @@ export default function Item({ item, onDeleteItem, onUpdateItem }) {
           onUpdateItem(item.id);
         }}
       />
-      <span
-        style={
-          item.packed
-            ? {
-                textDecoration: "line-through",
-              }
-            : {}
-        }
-      >
+      <span className={item.packed ? "packed" : ""}>
         {item.quantity} {item.description}
       </span>
       <button onClick={() => onDeleteItem(item.id)}>❌</button>

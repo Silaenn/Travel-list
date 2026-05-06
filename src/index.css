@@ -1,4 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand:wght@500;700&display=swap");
+/* 
+  Travel List - Nature/Organic + Minimalist Theme
+  Theme: Travel Journal
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --color-bg: #f5efe6;
+  --color-surface: #fdf8f2;
+  --color-primary: #a8c5a0; /* Sage Green */
+  --color-accent: #d4845a; /* Terracotta */
+  --color-text-main: #3d2b1f; /* Dark Brown */
+  --color-text-dim: #8a6a55;
+  --color-text-packed: #b0a090;
+  --color-border: #e0d0bc;
+  --radius-card: 12px;
+  --radius-btn: 8px;
+}
 
 * {
   margin: 0;
@@ -6,16 +24,12 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 body {
-  font-size: 2.4rem;
-  font-family: sans-serif;
-  color: #5a3e2b;
-  font-family: "Quicksand";
-  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  line-height: 1.6;
 }
 
 .app {
@@ -23,110 +37,268 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: auto auto 1fr auto;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 2rem;
 }
 
+/* --- LOGO --- */
 h1 {
   text-align: center;
-  background-color: #f4a226;
-  font-family: "Monoton";
-  font-size: 8rem;
-  text-transform: uppercase;
-  font-weight: 400;
-  word-spacing: 30px;
-  letter-spacing: -5px;
-  padding: 2.4rem 0;
+  font-size: 42px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  letter-spacing: -1px;
+  padding: 1rem 0 0.5rem 0;
 }
 
+.logo-tagline {
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-text-dim);
+  margin-top: 4px;
+  font-weight: 300;
+}
+
+/* --- FORM --- */
 .add-form {
-  background-color: #e5771f;
-  padding: 2.8rem 0;
+  background-color: var(--color-surface);
+  padding: 2rem;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.8rem;
+  gap: 1.2rem;
+  flex-wrap: wrap;
 }
 
-h3 {
-  margin-right: 1.6rem;
-  font-size: 2.4rem;
+.add-form h3 {
+  font-size: 18px;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
-button,
-select,
-input {
-  background-color: #ffebb3;
-  color: #5a3e2b;
+.add-form select,
+.add-form input {
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
   font-family: inherit;
-  border: none;
-  border-radius: 10rem;
-  padding: 1.2rem 3.2rem;
-  font-weight: 700;
-  font-size: 1.8rem;
-  cursor: pointer;
+  font-size: 14px;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.add-form select:focus,
+.add-form input:focus {
+  border-color: var(--color-accent);
 }
 
 .add-form button {
+  background-color: var(--color-accent);
+  color: #fff;
   text-transform: uppercase;
-  background-color: #76c7ad;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
+.add-form button:hover {
+  background-color: #be744d;
+}
+
+/* --- PACKING LIST --- */
 .list {
-  background-color: #5a3e2b;
-  color: #ffebb3;
-  padding: 4rem 0;
-
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 2rem;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
-  gap: 3.2rem;
-  align-items: center;
-}
-
-.actions button,
-.list select {
-  text-transform: uppercase;
-  padding: 0.8rem 2.4rem;
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin: 0 0.8rem;
+  gap: 2rem;
+  overflow-y: auto;
 }
 
 .list ul {
   list-style: none;
-  width: 80%;
-  /* overflow: scroll; */
-
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.2rem;
-  justify-content: center;
-  align-content: start;
+  align-content: flex-start;
 }
 
+/* Empty state in packing list */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 3rem;
+  color: var(--color-text-dim);
+  text-align: center;
+}
+
+.empty-state h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+/* --- ITEM --- */
 .list li {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1rem;
+  padding: 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  background-color: var(--color-bg);
+  transition: all 0.2s;
 }
 
-input[type="checkbox"] {
-  height: 2rem;
-  width: 2rem;
-  accent-color: #e5771f;
+/* Packed item highlighting */
+.list li:has(.packed) {
+  background: #eaf4e8;
+  border-left: 3px solid #a8c5a0;
+}
+
+.list li input[type="checkbox"] {
+  height: 18px;
+  width: 18px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.list li span {
+  font-weight: 500;
+}
+
+/* Packed item state */
+.list li span.packed {
+  text-decoration: line-through;
+  color: var(--color-text-packed);
+  opacity: 0.7;
 }
 
 .list li button {
   cursor: pointer;
   background: none;
   border: none;
-  font-size: 1.8rem;
-  padding: 0.8rem;
-  transform: translateY(2px);
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  margin-left: auto;
+  line-height: 1;
 }
 
+/* --- ACTIONS (Sort/Clear) --- */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.actions select {
+  font-family: inherit;
+  font-size: 12px;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  background-color: var(--color-bg);
+  color: var(--color-text-dim);
+  outline: none;
+}
+
+.actions button {
+  background: none;
+  border: 1px solid var(--color-border);
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-btn);
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--color-text-dim);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.actions button:hover {
+  color: #e63946;
+  border-color: #e63946;
+}
+
+/* --- STATS --- */
 .stats {
-  background-color: #76c7ad;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 2rem;
   text-align: center;
-  font-weight: 700;
-  padding: 3.2rem 0;
+  font-style: normal;
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--color-text-dim);
+}
+
+/* Stats percentage number */
+.stats-percentage {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--color-accent);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.stats-percentage span {
+  font-size: 13px;
+  color: var(--color-text-dim);
+  font-weight: 400;
+}
+
+/* Progress Bar Implementation */
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-bg);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  transition: width 0.4s ease-out;
+}
+
+/* Small screen adjustments */
+@media (max-width: 600px) {
+  .app {
+    padding: 1rem;
+  }
+  
+  .add-form {
+    padding: 1rem;
+  }
 }

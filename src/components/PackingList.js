@@ -27,16 +27,24 @@ export default function PackingList({
 
   return (
     <div className="list">
-      <ul>
-        {sortedItems.map((item) => (
-          <Item
-            item={item}
-            key={item.id}
-            onDeleteItem={onDeleteItem}
-            onUpdateItem={onUpdateItem}
-          />
-        ))}
-      </ul>
+      {items.length > 0 ? (
+        <ul>
+          {sortedItems.map((item) => (
+            <Item
+              item={item}
+              key={item.id}
+              onDeleteItem={onDeleteItem}
+              onUpdateItem={onUpdateItem}
+            />
+          ))}
+        </ul>
+      ) : (
+        <div className="empty-state">
+          <span style={{ fontSize: "5rem", marginBottom: "0.5rem" }}>🧳</span>
+          <h3>Your list is empty!</h3>
+          <p>Add your first item above to get started.</p>
+        </div>
+      )}
 
       <div className="actions">
         <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>

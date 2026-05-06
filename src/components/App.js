@@ -34,8 +34,6 @@ export default function App() {
     );
 
     if (confirmed) setItems([]);
-
-    setItems([]);
   }
 
   return (

@@ -11,11 +11,19 @@ export default function Stats({ items }) {
   const percentage = Math.round((numPacked / numItems) * 100);
   return (
     <footer className="stats">
+      <div className="stats-percentage">
+        {percentage}% <span>packed</span>
+      </div>
+      <div className="progress-bar-container">
+        <div
+          className="progress-bar-fill"
+          style={{ width: `${percentage}%` }}
+        ></div>
+      </div>
       <em>
-        {percentage == 100
+        {percentage === 100
           ? "You got everything! Ready to go ✈️"
-          : `💼 You have ${numItems} items on your list, and you already packed
-        ${numPacked} (${percentage}%)`}
+          : `💼 You have ${numItems} items on your list, and you already packed ${numPacked} (${percentage}%)`}
       </em>
     </footer>
   );
