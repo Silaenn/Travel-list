@@ -90,9 +90,14 @@ body {
 .logo-tagline {
   margin-top: 6px;
   font-size: clamp(12px, 2vw, 14px);
-  font-weight: 300;
+  font-weight: 500;
   color: var(--color-text-dim);
   letter-spacing: 0.02em;
+  background-color: var(--color-bg);
+  padding: 2px 12px;
+  border-radius: 20px;
+  width: fit-content;
+  margin: 4px auto 0;
 }
 
 /* ============================================
