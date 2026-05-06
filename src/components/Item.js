@@ -1,6 +1,15 @@
+import { useState } from "react";
+
 export default function Item({ item, onDeleteItem, onUpdateItem }) {
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  function handleDelete() {
+    setIsDeleting(true);
+    setTimeout(() => onDeleteItem(item.id), 300);
+  }
+
   return (
-    <li className="item-enter">
+    <li className={isDeleting ? "item-exit" : "item-enter"}>
       <input
         type="checkbox"
         checked={item.packed}
@@ -9,7 +18,7 @@ export default function Item({ item, onDeleteItem, onUpdateItem }) {
       <span className={item.packed ? "packed" : ""}>
         {item.quantity} {item.description}
       </span>
-      <button onClick={() => onDeleteItem(item.id)}>❌</button>
+      <button onClick={handleDelete}>❌</button>
     </li>
   );
 }
