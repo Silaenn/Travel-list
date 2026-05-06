@@ -129,6 +129,11 @@ h1 {
   overflow-y: auto;
 }
 
+/* Hide overflow when empty to prevent unnecessary scrollbars */
+.list:has(.empty-state) {
+  overflow: hidden;
+}
+
 .list ul {
   list-style: none;
   display: grid;
