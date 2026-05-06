@@ -1,12 +1,10 @@
 export default function Item({ item, onDeleteItem, onUpdateItem }) {
   return (
-    <li>
+    <li className="item-enter">
       <input
         type="checkbox"
         checked={item.packed}
-        onChange={() => {
-          onUpdateItem(item.id);
-        }}
+        onChange={() => onUpdateItem(item.id)}
       />
       <span className={item.packed ? "packed" : ""}>
         {item.quantity} {item.description}
